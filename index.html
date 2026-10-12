@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>for you 🎀</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#ffeef3;--bg2:#ffe0ea;--bg3:#f1e6ff;--pink:#f7a8c0;--rose:#e0628a;--deep:#9c3a5e;--ink:#5b2a40;--cream:#fffaf6;--glass:rgba(255,255,255,.62)}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{font-family:Quicksand,system-ui,sans-serif;color:var(--ink);font-size:17px;line-height:1.55;background:var(--bg1);overflow-x:hidden;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+h1,h2,.hand{font-family:Caveat,cursive;font-weight:700;color:var(--deep);line-height:1.15}
+h1{font-size:clamp(2.8rem,11vw,4.6rem)}h2{font-size:clamp(1.8rem,6.5vw,2.5rem)}
+html{-webkit-text-size-adjust:100%}
+button{font:inherit;cursor:pointer;border:0;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+/* Apple Music-style moving blurred colour background */
+#aurora{position:fixed;inset:-15%;z-index:0;pointer-events:none;overflow:hidden;filter:blur(60px) saturate(1.35);background:linear-gradient(160deg,#ffe9f1,#ffd9e6)}
+#aurora i{position:absolute;border-radius:50%;will-change:transform;mix-blend-mode:normal;opacity:.9}
+#aurora .b1{width:62vmax;height:62vmax;left:-15vmax;top:-12vmax;background:radial-gradient(circle,#ff9fc2 0%,#ffb3cf 45%,transparent 70%);animation:m1 19s ease-in-out infinite alternate}
+#aurora .b2{width:55vmax;height:55vmax;right:-18vmax;top:8vmax;background:radial-gradient(circle,#c9a8ff 0%,#dcc6ff 45%,transparent 70%);animation:m2 25s ease-in-out infinite alternate}
+#aurora .b3{width:58vmax;height:58vmax;left:-6vmax;bottom:-22vmax;background:radial-gradient(circle,#ffc2a8 0%,#ffd6c4 45%,transparent 70%);animation:m3 22s ease-in-out infinite alternate}
+#aurora .b4{width:46vmax;height:46vmax;right:-8vmax;bottom:-14vmax;background:radial-gradient(circle,#ff6f9f 0%,#ff93b8 45%,transparent 70%);animation:m4 28s ease-in-out infinite alternate}
+#aurora .b5{width:38vmax;height:38vmax;left:30vw;top:25vh;background:radial-gradient(circle,#ffffff 0%,#ffe3ee 50%,transparent 70%);animation:m5 17s ease-in-out infinite alternate}
+@keyframes m1{0%{transform:translate(0,0) scale(1) rotate(0)}50%{transform:translate(35vw,22vh) scale(1.25) rotate(90deg)}100%{transform:translate(12vw,48vh) scale(.9) rotate(200deg)}}
+@keyframes m2{0%{transform:translate(0,0) scale(1.1)}50%{transform:translate(-40vw,18vh) scale(.85)}100%{transform:translate(-18vw,-8vh) scale(1.3)}}
+@keyframes m3{0%{transform:translate(0,0) scale(1)}50%{transform:translate(38vw,-28vh) scale(1.3)}100%{transform:translate(52vw,-8vh) scale(.9)}}
+@keyframes m4{0%{transform:translate(0,0) scale(1.2)}50%{transform:translate(-36vw,-24vh) scale(.9)}100%{transform:translate(-14vw,-42vh) scale(1.15)}}
+@keyframes m5{0%{transform:translate(-20vw,-10vh) scale(.9)}50%{transform:translate(18vw,22vh) scale(1.3)}100%{transform:translate(28vw,-18vh) scale(1)}}
+#bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+#bg span{position:absolute;bottom:-40px;opacity:0;animation:rise linear infinite}
+@keyframes rise{10%{opacity:.7}100%{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+.screen{position:relative;z-index:1;display:none;min-height:100vh;min-height:100dvh;padding:28px 18px 70px;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:18px}
+.screen.on{display:flex;animation:fadein .7s ease}
+@keyframes fadein{from{opacity:0;transform:scale(.97)}}
+.card{background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1.5px solid rgba(255,255,255,.9);border-radius:28px;box-shadow:0 14px 44px rgba(224,98,138,.2);padding:28px 22px;width:min(100%,520px)}
+.btn{background:linear-gradient(135deg,#f58bb0,var(--rose));color:#fff;font-weight:600;padding:15px 26px;min-height:52px;border-radius:99px;box-shadow:0 8px 20px rgba(224,98,138,.35);transition:transform .2s;width:min(100%,380px)}
+.btn:hover{transform:translateY(-2px) scale(1.02)}.btn:active{transform:scale(.97)}
+.btn.soft{background:#fff;color:var(--deep);box-shadow:0 4px 14px rgba(224,98,138,.18);border:1.5px solid var(--pink)}
+.link{background:none;color:var(--deep);text-decoration:underline;padding:10px;min-height:44px}
+.sub{max-width:420px}
+/* envelope */
+.env{position:relative;width:230px;height:150px;background:#ffc9da;border-radius:6px 6px 14px 14px;box-shadow:0 14px 30px rgba(224,98,138,.3);margin:12px 0;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-9px)}}
+.env .flap{position:absolute;top:0;left:0;width:100%;height:0;border-left:115px solid transparent;border-right:115px solid transparent;border-top:90px solid #ffb0c9;transform-origin:top;transition:transform .8s;z-index:3;filter:drop-shadow(0 3px 2px rgba(0,0,0,.08))}
+.env .paper{position:absolute;left:14px;right:14px;top:10px;height:120px;background:var(--cream);border-radius:6px;transition:transform .9s .5s;z-index:1}
+.env .front{position:absolute;inset:0;z-index:2;background:linear-gradient(135deg,transparent 49%,#ffb9d0 50%) left/50% 100% no-repeat,linear-gradient(225deg,transparent 49%,#ffb9d0 50%) right/50% 100% no-repeat;border-radius:6px 6px 14px 14px;clip-path:inset(35% 0 0 0)}
+.env .seal{position:absolute;top:70px;left:50%;margin-left:-17px;z-index:4;font-size:34px;transition:opacity .3s}
+.env.open{animation:none}.env.open .flap{transform:rotateX(180deg);z-index:0}.env.open .paper{transform:translateY(-70px)}.env.open .seal{opacity:0}
+/* letter */
+.paper-card{background:var(--cream);background-image:repeating-linear-gradient(transparent 0 33px,rgba(247,168,192,.35) 33px 34px);border-radius:10px;box-shadow:0 14px 40px rgba(156,58,94,.18);padding:30px 24px;width:min(100%,560px);text-align:left;transform:rotate(-.6deg)}
+.paper-card p{font-family:Caveat,cursive;font-size:clamp(1.4rem,5.2vw,1.75rem);line-height:34px;margin-bottom:34px;min-height:34px;color:#6a3350}
+.paper-card p:empty{display:none}
+.caret::after{content:"♡";margin-left:3px;animation:blink 1s infinite}@keyframes blink{50%{opacity:0}}
+/* questions */
+.bar{width:min(100%,520px);height:8px;background:rgba(255,255,255,.7);border-radius:9px;overflow:visible;position:relative}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--pink),var(--rose));border-radius:9px;transition:width .6s}
+.bar b{position:absolute;top:-9px;font-size:20px;transition:left .6s;margin-left:-10px}
+.opts{display:grid;gap:10px;margin:18px 0}
+.opt{background:#fff;border:2px solid #ffd0df;border-radius:18px;padding:14px 16px;min-height:52px;color:var(--ink);text-align:left;transition:.2s}
+.opt:hover{border-color:var(--pink)}.opt[aria-pressed=true]{background:#ffe3ee;border-color:var(--rose);transform:scale(1.02)}
+textarea,input[type=text]{width:100%;margin:18px 0;border:2px solid #ffd0df;border-radius:18px;padding:14px;font:inherit;font-size:16px;background:#fff;color:var(--ink);resize:vertical}
+.row{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.row .btn{width:auto;flex:1}
+.hint{font-size:.85rem;opacity:.75}
+.between{font-family:Caveat,cursive;font-size:2.2rem;color:var(--deep);padding:50px 0;animation:fadein .5s}
+/* proposal */
+#propose{background:rgba(120,40,70,.18)}
+.big{font-size:clamp(5rem,26vw,8rem);animation:beat 1.4s infinite}@keyframes beat{15%{transform:scale(1.15)}30%{transform:scale(1)}45%{transform:scale(1.1)}}
+.rv{opacity:0;transform:translateY(14px);transition:1s}.rv.show{opacity:1;transform:none}
+.stack{display:grid;gap:12px;width:min(100%,380px);justify-items:center}
+.stack .btn{width:100%}
+/* end */
+.msg{white-space:pre-line;max-width:440px}
+.err{color:#b0214a;background:#fff;border:1.5px solid #f5a0b9;border-radius:14px;padding:10px 14px;margin:10px 0;font-size:.95rem}
+.ok{color:#2d7a55;font-weight:600;margin:10px 0}
+.tools{position:fixed;top:calc(10px + env(safe-area-inset-top));right:10px;z-index:20;display:flex;gap:8px}
+.tools button{width:44px;height:44px;border-radius:50%;background:var(--glass);backdrop-filter:blur(8px);font-size:20px;box-shadow:0 4px 12px rgba(224,98,138,.2)}
+footer{position:fixed;bottom:calc(8px + env(safe-area-inset-bottom));left:0;right:0;text-align:center;font-size:.8rem;z-index:5;pointer-events:none;color:var(--deep)}
+#secret{pointer-events:auto;background:none;font-size:1rem;padding:6px}
+#warn{position:fixed;top:0;left:0;right:0;z-index:50;background:#fff3b0;color:#5a4500;font-size:.8rem;padding:6px 12px;text-align:center;display:none}
+#cur{position:fixed;z-index:60;pointer-events:none;font-size:16px;display:none;transform:translate(-50%,-50%)}
+@media (pointer:fine){#cur{display:block}}
+.pop{position:fixed;z-index:70;pointer-events:none;animation:pop 1.6s ease-out forwards}
+@keyframes pop{to{transform:translate(var(--x),var(--y)) rotate(var(--r));opacity:0}}
+@media (max-width:600px){
+ #aurora{filter:blur(40px) saturate(1.3);inset:-10%}
+ #bg span:nth-child(even){display:none}
+ .screen{padding:68px 16px 64px;gap:16px}
+ .card{padding:22px 16px;border-radius:24px}
+ .paper-card{padding:24px 18px}
+ .opt{padding:15px 14px}
+ .tools button{width:40px;height:40px;font-size:18px}
+ .btn{min-height:54px}
+ footer{font-size:.75rem}
+}
+@media (max-height:620px){.env{display:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}#bg{display:none}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="warn"></div>
+<div id="aurora" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i><i class="b5"></i></div>
+<div id="bg" aria-hidden="true"></div><div id="cur" aria-hidden="true">💗</div>
+<div class="tools">
+  <button id="musicBtn" aria-label="Toggle music" title="music">🎵</button>
+  <button id="muteBtn" aria-label="Toggle sound effects" title="sound effects">🔔</button>
+</div>
+
+<main>
+<!-- OPENING -->
+<section class="screen on" id="s-open">
+  <h1 id="hey"></h1>
+  <p class="sub">i made a little something for you... and i may or may not be blushing while you read this ♡</p>
+  <div class="env" id="env" aria-hidden="true"><div class="paper"></div><div class="flap"></div><div class="front"></div><div class="seal">💗</div></div>
+  <button class="btn" id="openBtn">open your little surprise 💌</button>
+</section>
+
+<!-- LETTER -->
+<section class="screen" id="s-letter">
+  <div class="paper-card" id="letter" aria-live="polite"></div>
+  <div class="stack"><button class="btn" id="toQ">okay, i'm ready 🎀</button><button class="link" id="skipType">show the whole letter</button></div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="screen" id="s-q">
+  <div class="bar" aria-hidden="true"><i id="barFill"></i><b id="barHeart">💗</b></div>
+  <div class="card" id="qcard"></div>
+  <p class="hint">everything is optional, answer only what feels right ♡</p>
+</section>
+
+<!-- PROPOSAL -->
+<section class="screen" id="propose">
+  <div class="big" aria-hidden="true">💐</div>
+  <h2 class="rv">so... there's one last thing i've been wanting to ask you 💗</h2>
+  <h1 class="rv" style="font-size:clamp(2.2rem,9vw,3.6rem)">would you like to be more than just friends with me? 🥹💌</h1>
+  <p class="rv sub">i really like you, and i'd love to see where this could go. no pressure to give me the answer you think i want — i want your honest answer, whatever it is. ♡</p>
+  <div class="stack rv">
+    <button class="btn" data-ans="yes">yes... i'd love that! 💗</button>
+    <button class="btn soft" data-ans="more time">i need a little more time 🌷</button>
+    <button class="link" data-ans="friend">i see you as a friend ♡</button>
+  </div>
+  <div id="subStatus" aria-live="polite"></div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="s-res">
+  <div class="card"><h1 id="rTitle"></h1><p class="msg" id="rBody" style="margin:14px auto"></p>
+  <div id="rExtra"></div><div id="rStatus" aria-live="polite"></div>
+  <div class="stack" style="margin:16px auto 0"><button class="btn" id="toNote">write me a message 💌</button><button class="link" id="replay">replay from the start</button></div></div>
+</section>
+
+<!-- NOTE -->
+<section class="screen" id="s-note">
+  <div class="card"><h2>a little note? 💌</h2>
+  <textarea id="note" rows="6" placeholder="anything you wanna tell me... i'm listening ♡" aria-label="Your note"></textarea>
+  <div id="nStatus" aria-live="polite"></div>
+  <div class="stack" style="margin:auto"><button class="btn" id="sendNote">send your little letter 💌</button><button class="link" id="backRes">back</button></div></div>
+</section>
+</main>
+
+<footer>made with a little courage and a lot of 💗 <button id="secret" aria-label="a secret heart">🤍</button></footer>
+<audio id="audio" preload="none"></audio>
+
+<script>
+/* ============ EDIT ME ============ */
+const CONFIG = {
+  nickname: "Anshu",                     // her name/nickname, shows in "heyyy ___ 🎀"
+  yourName: "me",
+  formEndpoint: "PASTE_YOUR_FORMSPREE_URL_HERE", // e.g. https://formspree.io/f/abcdwxyz
+  musicUrl: "song.mp3",                        // optional: path/URL to an mp3 you have the rights to use, e.g. "song.mp3"
+  secretMessage: "psst... you found my secret heart. reminder: this idiot likes you, and you already know that. ♡",
+  letter: [
+    "okay so... i've been wanting to tell you something, and i thought maybe the cutest way to do it would be this little website ♡",
+    "also, full disclosure: this idiot likes you. and you already know that. 🙈",
+    "you've become someone really special to me, and talking to you is something i genuinely look forward to. there's just something about you that makes me smile in ways i can't really explain.",
+    "i don't know if i say it enough, but i'm really glad i got to know you. and today, i wanted to do something a little different to tell you how i feel.",
+    "sooo... i have a few questions for you. please answer them honestly, okay? no pressure, just me being a little brave for once. 🎀"
+  ],
+  questions: [
+    {k:"special", q:"first things first... do you know how special you are to me? 🥹", o:["i think i do ♡","maybe not enough yet 🎀","tell me moreee 💗"], after:"hehe, noted ♡"},
+    {k:"smile", q:"be honest... do i ever make you smile when my name pops up on your screen? 🙈", o:["yesss, more than you know 💕","maybe a little hehe","okay fine, yes 😭","i'll never tell you 🤭"], after:"this idiot is smiling at his screen right now 🙈"},
+    {k:"first impression", q:"what was your first impression of me? 👀", t:"text", ph:"tell me everything, i'm curious... ♡", after:"you're doing so well, pretty human 🎀"},
+    {k:"one thing you like", q:"what's one thing about me that you like? 🌷", t:"text", ph:"even the smallest thing counts 💌", after:"okay that's going in the memory vault forever 📝💗"},
+    {k:"perfect day", q:"if we could spend a whole day together, what would your perfect day look like? ☁️", o:["a cute café date ☕","a long walk and endless conversations 🌸","watching movies together 🎬","doing absolutely nothing, just enjoying the moment 💗","let me plan something myself ✨"], after:"okayyy, getting a little nervous now... 🥹"},
+    {k:"more than friends?", q:"do you ever imagine us being something more than just friends? 🫣", o:["sometimes... maybe ♡","i've thought about it 💕","hmm, that's a secret 🤭","i'm not sure yet, and that's okay 🌷"], after:"sorry, this idiot is already overthinking your answer 😭"},
+    {k:"our song", q:"what song would you choose as OUR song? 🎧", t:"text", ph:"a song name, or a dedication ♡"},
+    {k:"unsaid", q:"one last thing before the big question... is there anything you've wanted to tell me but haven't? 💌", t:"long", ph:"totally optional ♡"}
+  ],
+  results: {
+    "yes": {title:"WAITTT, REALLY?!? 😭💗", body:"you just made me the happiest person everrr ♡\n\nthank you for giving us a chance. let's take things one step at a time and make some really lovely memories together. 🎀", extra:"officially a new little chapter for us? 💌", confetti:true},
+    "more time": {title:"that's completely okay, promise ♡", body:"take all the time you need. i'm glad you were honest with me, and there's no pressure to figure everything out right now. 💗"},
+    "friend": {title:"thank you for being honest with me. ♡", body:"i really appreciate you taking the time to answer, and i respect how you feel. you don't owe me a particular answer, and i hope this little surprise still made you smile. 🌷"}
+  }
+};
+/* =================================== */
+
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const NOT_SET=!CONFIG.formEndpoint||CONFIG.formEndpoint.includes("PASTE_YOUR");
+if(NOT_SET){const w=$('#warn');w.style.display='block';w.textContent="⚠ Setup not finished: answers are NOT being sent to you yet. Add your Formspree URL in CONFIG.formEndpoint.";}
+
+// session state
+let S={a:{},i:0,choice:null,sent:false};
+try{const r=sessionStorage.getItem('love');if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+const save=()=>{try{sessionStorage.setItem('love',JSON.stringify(S))}catch(e){}};
+
+// screens
+function show(id){$$('.screen').forEach(s=>s.classList.toggle('on',s.id===id));scrollTo(0,0);const h=$('#'+id+' h1, #'+id+' h2');}
+
+// floating background
+const bg=$('#bg');['💗','🌸','✨','🎀','💕','⭐','🌷'].forEach((c,n)=>{for(let k=0;k<3;k++){const s=document.createElement('span');s.textContent=c;s.style.cssText=`left:${Math.random()*100}%;font-size:${12+Math.random()*16}px;animation-duration:${9+Math.random()*10}s;animation-delay:${-Math.random()*14}s`;bg.appendChild(s);}});
+// cursor
+const cur=$('#cur');addEventListener('pointermove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});
+
+// sound (tiny synth blips, never autoplay)
+let muted=false,ctx;
+function blip(f=660){if(muted)return;try{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();const o=ctx.createOscillator(),g=ctx.createGain();o.frequency.value=f;o.type='sine';g.gain.setValueAtTime(.08,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.25);o.connect(g).connect(ctx.destination);o.start();o.stop(ctx.currentTime+.25);}catch(e){}}
+$('#muteBtn').onclick=()=>{muted=!muted;$('#muteBtn').textContent=muted?'🔕':'🔔';};
+document.addEventListener('click',e=>{if(e.target.closest('button'))blip(600+Math.random()*300);});
+// music (opt-in)
+const au=$('#audio'),mb=$('#musicBtn');
+const PLAYLIST=["song.mp3","song2.mp3"];let track=0;   // plays in order, then starts over
+if(CONFIG.musicUrl){au.src=PLAYLIST[0];au.volume=.6;au.preload='auto';}
+au.addEventListener('ended',()=>{track=(track+1)%PLAYLIST.length;au.src=PLAYLIST[track];au.play().catch(()=>{});});
+// Built-in original calming music: soft pads + music-box notes, generated live (no file, no copyright)
+let amb={on:false};
+function startAmbient(){
+  ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();ctx.resume();
+  const m=ctx.createGain();m.gain.value=0;m.gain.linearRampToValueAtTime(.5,ctx.currentTime+6);
+  const lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=900;
+  const lfo=ctx.createOscillator(),lg=ctx.createGain();lfo.frequency.value=.07;lg.gain.value=350;lfo.connect(lg);lg.connect(lp.frequency);lfo.start();
+  const mk=(t,fb,w)=>{const d=ctx.createDelay(2);d.delayTime.value=t;const f=ctx.createGain();f.gain.value=fb;d.connect(f);f.connect(d);const o=ctx.createGain();o.gain.value=w;lp.connect(d);d.connect(o);o.connect(m);};
+  mk(.62,.5,.5);mk(1.1,.45,.35);
+  lp.connect(m);m.connect(ctx.destination);
+  amb={on:true,m,timer:null,lfo};
+  // slow, hazy, melancholic: Am9 - Fmaj9 - Cmaj9 - Em7
+  const chords=[[110,130.8,164.8,196,246.9],[87.3,110,130.8,164.8,196],[130.8,164.8,196,246.9,293.7],[82.4,123.5,146.8,196,246.9]];
+  const mel=[220,261.6,329.6,392,440];
+  const pad=(f,t,d,v)=>{[-7,7].forEach(c=>{const o=ctx.createOscillator(),g=ctx.createGain();o.type='triangle';o.frequency.value=f;o.detune.value=c;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+d*.35);g.gain.linearRampToValueAtTime(0,t+d);o.connect(g);g.connect(lp);o.start(t);o.stop(t+d+.1);});};
+  const note=(f,t)=>{const o=ctx.createOscillator(),g=ctx.createGain();o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.045,t+.4);g.gain.exponentialRampToValueAtTime(.0005,t+5);o.connect(g);g.connect(lp);o.start(t);o.stop(t+5.1);};
+  let n=0;
+  (function bar(){if(!amb.on)return;const t=ctx.currentTime;chords[n%4].forEach(f=>pad(f,t,14,.03));
+    [2.5,6.5].forEach(x=>{if(Math.random()<.8)note(mel[Math.floor(Math.random()*mel.length)],t+x+Math.random());});
+    n++;amb.timer=setTimeout(bar,10000);})();
+}
+function stopAmbient(){if(!amb.on)return;amb.on=false;clearTimeout(amb.timer);try{amb.m.gain.cancelScheduledValues(ctx.currentTime);amb.m.gain.setValueAtTime(amb.m.gain.value,ctx.currentTime);amb.m.gain.linearRampToValueAtTime(0,ctx.currentTime+1.5);amb.lfo.stop(ctx.currentTime+1.6);}catch(e){}}
+let musicOn=false;
+let songFailed=false;
+function fallback(){songFailed=true;if(musicOn&&!amb.on)startAmbient();}
+au.addEventListener('error',fallback);
+function setMusic(on){musicOn=on;mb.textContent=on?'⏸':'🎵';
+  if(CONFIG.musicUrl&&!songFailed){if(on){const p=au.play();if(p&&p.catch)p.catch(fallback);}else au.pause();}
+  else{on?startAmbient():stopAmbient();}}
+mb.onclick=()=>setMusic(!musicOn);
+
+// particles
+function burst(chars,n=40){if(reduce)return;for(let k=0;k<n;k++){const p=document.createElement('div');p.className='pop';p.textContent=chars[k%chars.length];p.style.cssText=`left:${30+Math.random()*40}vw;top:${40+Math.random()*20}vh;font-size:${14+Math.random()*18}px;--x:${(Math.random()-.5)*90}vw;--y:${(Math.random()-.9)*70}vh;--r:${Math.random()*540}deg`;document.body.appendChild(p);setTimeout(()=>p.remove(),1700);}}
+
+// opening
+$('#hey').textContent="heyyy "+CONFIG.nickname+" 🎀";
+function openEnv(){if(!musicOn)setMusic(true);$('#env').classList.add('open');$('#openBtn').disabled=true;burst(['💗','✨'],14);setTimeout(()=>{show('s-letter');typeLetter();},reduce?0:1300);}
+$('#openBtn').onclick=openEnv;
+
+// letter typing
+let typing=null,typed=false;
+function typeLetter(){const box=$('#letter');if(typed)return;typed=true;box.innerHTML='';const ps=CONFIG.letter.map(t=>{const p=document.createElement('p');box.appendChild(p);return p;});
+  let pi=0,ci=0;const speed=reduce?0:22;
+  const done=()=>ps.forEach((p,i)=>p.textContent=CONFIG.letter[i]);
+  if(!speed){done();return;}
+  typing=setInterval(()=>{if(pi>=ps.length){clearInterval(typing);ps.forEach(p=>p.classList.remove('caret'));return;}
+    ps.forEach(p=>p.classList.remove('caret'));ps[pi].classList.add('caret');ps[pi].textContent=CONFIG.letter[pi].slice(0,++ci);
+    if(ci>=CONFIG.letter[pi].length){pi++;ci=0;}},speed);
+  $('#skipType').onclick=()=>{clearInterval(typing);done();ps.forEach(p=>p.classList.remove('caret'));};}
+$('#toQ').onclick=()=>{clearInterval(typing);S.i=Math.min(S.i,CONFIG.questions.length-1);show('s-q');renderQ();};
+
+// questionnaire
+const Q=CONFIG.questions;
+function renderQ(){const q=Q[S.i],c=$('#qcard');c.innerHTML='';
+  const pct=(S.i/Q.length)*100;$('#barFill').style.width=pct+'%';$('#barHeart').style.left=pct+'%';
+  const h=document.createElement('h2');h.textContent=q.q;c.appendChild(h);
+  const cur=S.a[q.k]||"";
+  if(q.o){const w=document.createElement('div');w.className='opts';q.o.forEach(t=>{const b=document.createElement('button');b.className='opt';b.textContent=t;b.setAttribute('aria-pressed',cur===t);b.onclick=()=>{S.a[q.k]=(S.a[q.k]===t?"":t);save();$$('.opt').forEach(x=>x.setAttribute('aria-pressed',x.textContent===S.a[q.k]));if(S.a[q.k])burst(['💗'],5);};w.appendChild(b);});c.appendChild(w);}
+  else{const el=document.createElement(q.t==='long'?'textarea':'input');if(q.t==='long')el.rows=5;else el.type='text';el.placeholder=q.ph;el.value=cur;el.maxLength=1000;el.setAttribute('aria-label',q.q);el.oninput=()=>{S.a[q.k]=el.value;save();};c.appendChild(el);}
+  const r=document.createElement('div');r.className='row';
+  if(S.i>0){const b=document.createElement('button');b.className='btn soft';b.textContent='← back';b.onclick=()=>{S.i--;save();renderQ();};r.appendChild(b);}
+  const n=document.createElement('button');n.className='btn';const last=S.i===Q.length-1;n.textContent=last?'continue 💗':'next ♡';
+  n.onclick=()=>{ if(last){S.i=Q.length-1;save();startProposal();return;}
+    if(q.after){c.innerHTML='<div class="between">'+'</div>';c.firstChild.textContent=q.after;setTimeout(()=>{S.i++;save();renderQ();},reduce?300:1500);}else{S.i++;save();renderQ();}};
+  r.appendChild(n);c.appendChild(r);c.animate&&!reduce&&c.animate([{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'none'}],300);}
+
+// proposal
+function startProposal(){show('propose');$('#subStatus').innerHTML='';burst(['💐','🌸','💗'],18);
+  $$('#propose .rv').forEach((e,i)=>{e.classList.remove('show');setTimeout(()=>e.classList.add('show'),reduce?0:900+i*1500);});}
+$$('[data-ans]').forEach(b=>b.onclick=()=>choose(b.dataset.ans));
+
+async function submitForm(payload){
+  if(NOT_SET)throw new Error("Form endpoint not configured");
+  const r=await fetch(CONFIG.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+  if(!r.ok)throw new Error("HTTP "+r.status);return true;}
+
+function answersPayload(){const p={_subject:"💌 answers from your proposal site"};Q.forEach(q=>{p[q.k]=S.a[q.k]||"(skipped)";});return p;}
+
+async function choose(ans){S.choice=ans;save();const st=$('#subStatus');st.innerHTML='<p class="hint">sending your answer…</p>';
+  const p=answersPayload();p["PROPOSAL ANSWER"]=ans;
+  try{await submitForm(p);S.sent=true;save();showResult(ans,true);}
+  catch(e){st.innerHTML='';const d=document.createElement('div');d.className='err';d.textContent="hmm, your answer didn't go through"+(NOT_SET?" (the site owner hasn't finished setup yet)":" — please check your connection")+" 🥺 ";const rb=document.createElement('button');rb.className='link';rb.textContent='try again';rb.onclick=()=>choose(ans);d.appendChild(rb);st.appendChild(d);}}
+
+function showResult(ans,sent){const R=CONFIG.results[ans];show('s-res');$('#rTitle').textContent=R.title;$('#rBody').textContent=R.body;
+  const ex=$('#rExtra');ex.innerHTML='';if(R.extra){const d=document.createElement('p');d.className='hand';d.style.cssText='font-size:2rem;margin:10px 0';d.textContent=R.extra;ex.appendChild(d);}
+  $('#rStatus').innerHTML=sent?'<p class="ok">your answer was delivered ✓</p>':'';
+  $('#toNote').textContent=ans==='yes'?'write me a message 💌':'leave me a little note 💌';
+  if(R.confetti){burst(['💗','🌸','🎀','✨','🌷','💖'],70);setTimeout(()=>burst(['💗','🌸','💕'],40),900);}}
+
+// note
+$('#toNote').onclick=()=>show('s-note');$('#backRes').onclick=()=>show('s-res');
+$('#sendNote').onclick=async()=>{const t=$('#note').value.trim(),st=$('#nStatus');if(!t){st.innerHTML='<div class="err">write a little something first, or just go back ♡</div>';return;}
+  st.innerHTML='<p class="hint">sending…</p>';
+  try{await submitForm({_subject:"💌 a little note from her",note:t,"proposal answer":S.choice||"(n/a)"});
+    st.innerHTML='<p class="ok">sent ✓ thank you, truly ♡</p>';burst(['💌','💗'],24);$('#sendNote').disabled=true;}
+  catch(e){st.innerHTML='<div class="err">your note didn\'t go through'+(NOT_SET?' (setup not finished)':'')+'. please try again 🥺</div>';}};
+
+
+// pause music when she switches apps, resume when she's back
+document.addEventListener('visibilitychange',()=>{if(!musicOn)return;
+  if(document.hidden){au.pause();if(ctx)ctx.suspend();}
+  else{if(CONFIG.musicUrl&&!songFailed)au.play().catch(()=>{});if(ctx)ctx.resume();}});
+// replay & secret
+$('#replay').onclick=()=>{S={a:{},i:0,choice:null,sent:false};save();typed=false;$('#note').value='';$('#sendNote').disabled=false;$('#nStatus').innerHTML='';$('#env').classList.remove('open');$('#openBtn').disabled=false;show('s-open');};
+$('#secret').onclick=()=>{$('#secret').textContent='💗';burst(['💗'],12);alert(CONFIG.secretMessage);};
+</script>
+</body>
+</html>
